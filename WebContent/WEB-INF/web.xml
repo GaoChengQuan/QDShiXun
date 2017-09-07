@@ -9,4 +9,15 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>Student</servlet-name>
+  	<servlet-class>com.situ.student.controller.StudentServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Student</servlet-name>
+  	<url-pattern>/student</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
