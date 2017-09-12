@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-    <%@page import="com.situ.student.pojo.*"%>
+     <%@page import="com.situ.student.pojo.*"%>
 <%@page import="java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -8,14 +8,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<script type="text/javascript">
-	function del(id){
-		var isDel = confirm("您确认要删除么");
-		if(isDel) {
-			location.href="/ShiXun09/student?method=deleteById&id="+id;
-		}
-	}
-</script>
 </head>
 <body>
 	<!-- 顶部导航条 begin -->
@@ -55,18 +47,27 @@
 			<!--左边列表占12份中的2份-->
 			<div class="col-md-2">
 				<div class="list-group">
-				  <a href="#" class="list-group-item active">学生管理</a>
-				  <a href="student_search.jsp" class="list-group-item">学生搜索</a>
-				  <a href="/ShiXun09/student?method=getAddPage" class="list-group-item">添加学生</a>
+				  <a href="#" class="list-group-item">学生管理</a>
+				  <a href="#" class="list-group-item  active">学生搜索</a>
+				  <a href="#" class="list-group-item">添加学生</a>
 				</div>
 			</div>
 			<!--左边列表占12份中的10份-->
 			<div class="col-md-10">
 				<ul class="nav nav-tabs">
-				  <li role="presentation" class="active"><a href="#">学生管理</a></li>
-				  <li role="presentation"><a href="#">学生搜索</a></li>
+				  <li role="presentation"><a href="#">学生管理</a></li>
+				  <li role="presentation"  class="active"><a href="#">学生搜索</a></li>
 				  <li role="presentation"><a href="#">添加学生</a></li>
 				</ul>
+				<!-- 搜索开始 -->
+				<form action="/ShiXun09/student?method=searchByName" method="post">
+				  <div class="form-group">
+				    <label for="exampleInputEmail1">根据名字搜索</label>
+				    <input name="name" class="form-control" id="exampleInputEmail1">
+				  </div>
+				  <button type="submit" class="btn btn-default">搜索</button>
+				</form>
+				<!-- 搜索结束 -->
 				
 				<table class="table  table-condensed table-hover">
 					<thead>
@@ -75,13 +76,13 @@
 						<td>年龄</td>
 						<td>性别</td>
 						<td>地址</td>
-						<td>删除</td>
 					</thead>
 					<%
 						List<Student> list = (List<Student>)request.getAttribute("list");
 					%>
 					<%
-						for(Student student : list){
+						if (list != null) {
+							for(Student student : list){
 					%>
 							<tr>
 								<td><%=student.getId() %></td>
@@ -89,13 +90,11 @@
 								<td><%=student.getAge() %></td>
 								<td><%=student.getGender() %></td>
 								<td><%=student.getAddress() %></td>
-								<td><a href="javascript:del(<%=student.getId()%>)">删除</a></td>
 							</tr>
 					<%
+						    }
 						}
 					%>
-					
-					
 				</table>
 				
 			</div>

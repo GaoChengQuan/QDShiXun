@@ -17,6 +17,41 @@ import com.situ.student.pojo.Student;
 import com.situ.student.util.JdbcUtil;
 
 public class StudentServlet extends BaseServlet{
+	public void searchByName(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//1.根据名字搜索出结果
+		String searchName = req.getParameter("name");
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		List<Student> list = new ArrayList<>();
+		try {
+			connection = JdbcUtil.getConnection();
+			String sql = "SELECT id,NAME,age,gender,address FROM student where name like ?;";
+			statement = connection.prepareStatement(sql);
+			statement.setString(1, "%" + searchName + "%");
+			resultSet = statement.executeQuery();
+			while (resultSet.next()) {
+				int id = resultSet.getInt("id");
+				String name = resultSet.getString("name");
+				int age = resultSet.getInt("age");
+				String gender = resultSet.getString("gender");
+				String address = resultSet.getString("address");
+				Student student = new Student(id, name, age, gender, address);
+				list.add(student);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(connection, statement, resultSet);
+		}
+		
+		//放到request域对象中
+		req.setAttribute("list", list);
+		//转发到页面展示数据
+		req.getRequestDispatcher("/student_search.jsp").forward(req, resp);
+	}
+	
+	
 	public void getAddPage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Connection connection = null;
 		PreparedStatement statement = null;
