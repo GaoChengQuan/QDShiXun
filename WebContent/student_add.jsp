@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+     <%@page import="com.situ.student.pojo.*"%>
+<%@page import="java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -78,9 +80,15 @@
 				  <div  class="form-group">
 				  	<label >选择班级</label>
 				  	<select name="banjiId" class="form-control">
-				  		<option value="1">Java1705</option>
-				  		<option value="2">Java1707</option>
-				  		<option value="2">Java1708</option>
+				  		<%
+				  			List<Banji> list = (List<Banji>)request.getAttribute("list");
+				    		for(Banji banji : list){
+				    	%>
+				    			<option value="<%=banji.getId()%>"><%=banji.getName()%></option>
+				    	<%
+				    		}
+				  		%>
+				  		
 				  	</select>
 				  </div>
 				  
