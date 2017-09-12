@@ -15,8 +15,8 @@ public class BaseServlet extends HttpServlet{
 
 	//http://localhost:8080/ShiXun09/student
 	//http://localhost:8080/ShiXun09/deleteStudent
-	// http://localhost:8080/ShiXun09/stu?method=findAll
-	// http://localhost:8080/ShiXun09/stu?method=delete
+	// http://localhost:8080/ShiXun09/student?method=findAll
+	// http://localhost:8080/ShiXun09/student?method=delete
 	// http://localhost:8080/ShiXun09/banji?method=findAll
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
