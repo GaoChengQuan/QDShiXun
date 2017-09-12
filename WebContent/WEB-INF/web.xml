@@ -20,4 +20,14 @@
   	<url-pattern>/student</url-pattern>
   </servlet-mapping>
   
+  
+  <servlet>
+  	<servlet-name>Admin</servlet-name>
+  	<servlet-class>com.situ.student.controller.AdminServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Admin</servlet-name>
+  	<url-pattern>/admin</url-pattern>
+  </servlet-mapping>
 </web-app>

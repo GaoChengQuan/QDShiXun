@@ -41,7 +41,7 @@
 	        <li><a href="#"><span class="glyphicon glyphicon-tag"></span>&nbsp;&nbsp;教务管理</a></li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#">Admin</a></li>
+	        <li><a href="#"></a></li>
 	        <li><a href="#"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a></li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
