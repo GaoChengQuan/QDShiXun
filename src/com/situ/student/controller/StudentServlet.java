@@ -19,6 +19,40 @@ import com.situ.student.util.JdbcUtil;
 
 public class StudentServlet extends BaseServlet{
 	
+	public void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("StudentServlet.add()");
+		String name = req.getParameter("name");
+		String ageStr = req.getParameter("age");
+		String gender = req.getParameter("gender");
+		String address = req.getParameter("address");
+		int age = 0;
+		if (ageStr != null && !ageStr.equals("")) {
+			age = Integer.parseInt(ageStr);
+		}
+		
+		Student student = new Student(name, age, gender, address);
+		System.out.println(student);
+		Connection connection = null;
+		PreparedStatement statement = null;
+		try {
+			connection = JdbcUtil.getConnection();
+			String sql = "insert into student(name,age,gender,address) values(?,?,?,?);";
+			statement = connection.prepareStatement(sql);
+			statement.setString(1, name);
+			statement.setInt(2, age);
+			statement.setString(3, gender);
+			statement.setString(4, address);
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(connection, statement);
+		}
+		
+		//重定向到查询所有界面
+		resp.sendRedirect(req.getContextPath() + "/student?method=findAll");
+	}
+	
 	public void deleteById(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("StudentServlet.deleteById()");
 		String id = req.getParameter("id");

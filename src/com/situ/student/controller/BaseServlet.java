@@ -20,6 +20,8 @@ public class BaseServlet extends HttpServlet{
 	// http://localhost:8080/ShiXun09/banji?method=findAll
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//解决post乱码问题
+		req.setCharacterEncoding("utf-8");
 		//1.获取请求的method方法
 		String methodName = req.getParameter("method");
 		//2.获取当前被访问对象的字节码对象

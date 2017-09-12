@@ -58,22 +58,22 @@
 				  <li role="presentation" class="active"><a href="#">添加学生</a></li>
 				</ul>
 				
-				<form>
+				<form action="/ShiXun09/student?method=add" method="post">
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">姓名</label>
-				    <input name="name" type="email" class="form-control" id="exampleInputEmail1">
+				    <input name="name" class="form-control" id="exampleInputEmail1">
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">年龄</label>
-				    <input name="age" type="email" class="form-control" id="exampleInputEmail1">
+				    <input name="age"  class="form-control" id="exampleInputEmail1">
 				  </div>
 				   <div class="form-group">
 				    <label for="exampleInputEmail1">性别</label>
-				    <input name="gender" type="email" class="form-control" id="exampleInputEmail1">
+				    <input name="gender"  class="form-control" id="exampleInputEmail1">
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">地址</label>
-				    <input name="address" type="email" class="form-control" id="exampleInputEmail1">
+				    <input name="address"  class="form-control" id="exampleInputEmail1">
 				  </div>
 				  
 				  <button type="submit" class="btn btn-default">Submit</button>
