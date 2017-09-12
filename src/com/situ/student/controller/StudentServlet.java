@@ -57,6 +57,7 @@ public class StudentServlet extends BaseServlet{
 		if (ageStr != null && !ageStr.equals("")) {
 			age = Integer.parseInt(ageStr);
 		}
+		String banjiId = req.getParameter("banjiId");
 		
 		Student student = new Student(name, age, gender, address);
 		System.out.println(student);
@@ -64,12 +65,13 @@ public class StudentServlet extends BaseServlet{
 		PreparedStatement statement = null;
 		try {
 			connection = JdbcUtil.getConnection();
-			String sql = "insert into student(name,age,gender,address) values(?,?,?,?);";
+			String sql = "insert into student(name,age,gender,address,banji_id) values(?,?,?,?,?);";
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, name);
 			statement.setInt(2, age);
 			statement.setString(3, gender);
 			statement.setString(4, address);
+			statement.setInt(5, Integer.parseInt(banjiId));
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
