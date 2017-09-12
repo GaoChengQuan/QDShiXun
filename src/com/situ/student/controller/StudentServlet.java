@@ -19,6 +19,27 @@ import com.situ.student.util.JdbcUtil;
 
 public class StudentServlet extends BaseServlet{
 	
+	public void deleteById(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("StudentServlet.deleteById()");
+		String id = req.getParameter("id");
+		System.out.println("id:" + id);
+		Connection connection = null;
+		PreparedStatement statement = null;
+		try {
+			connection = JdbcUtil.getConnection();
+			String sql = "delete from student where id=?;";
+			statement = connection.prepareStatement(sql);
+			statement.setInt(1, Integer.parseInt(id));
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(connection, statement);
+		}
+		//重定向到查询所有界面
+		resp.sendRedirect(req.getContextPath() + "/student?method=findAll");
+		
+	}
 	
 	public void findAll(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Connection connection = null;
@@ -41,6 +62,8 @@ public class StudentServlet extends BaseServlet{
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(connection, statement, resultSet);
 		}
 		
 		//放到request域对象中

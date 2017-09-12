@@ -8,6 +8,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript">
+	function del(id){
+		var isDel = confirm("您确认要删除么");
+		if(isDel) {
+			location.href="/ShiXun09/student?method=deleteById&id="+id;
+		}
+	}
+</script>
 </head>
 <body>
 	<!-- 顶部导航条 begin -->
@@ -67,6 +75,7 @@
 						<td>年龄</td>
 						<td>性别</td>
 						<td>地址</td>
+						<td>删除</td>
 					</thead>
 					<%
 						List<Student> list = (List<Student>)request.getAttribute("list");
@@ -80,6 +89,7 @@
 								<td><%=student.getAge() %></td>
 								<td><%=student.getGender() %></td>
 								<td><%=student.getAddress() %></td>
+								<td><a href="javascript:del(<%=student.getId()%>)">删除</a></td>
 							</tr>
 					<%
 						}
