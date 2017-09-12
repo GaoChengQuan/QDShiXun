@@ -75,6 +75,14 @@
 				    <label for="exampleInputEmail1">地址</label>
 				    <input name="address"  class="form-control" id="exampleInputEmail1">
 				  </div>
+				  <div  class="form-group">
+				  	<label >选择班级</label>
+				  	<select name="banjiId" class="form-control">
+				  		<option value="1">Java1705</option>
+				  		<option value="2">Java1707</option>
+				  		<option value="2">Java1708</option>
+				  	</select>
+				  </div>
 				  
 				  <button type="submit" class="btn btn-default">Submit</button>
 				</form>

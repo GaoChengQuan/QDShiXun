@@ -12,12 +12,40 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.connector.Request;
-
+import com.situ.student.pojo.Banji;
 import com.situ.student.pojo.Student;
 import com.situ.student.util.JdbcUtil;
 
 public class StudentServlet extends BaseServlet{
+	public void getAddPage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		List<Banji> list = new ArrayList<Banji>();
+		try {
+			connection = JdbcUtil.getConnection();
+			String sql = "SELECT id,NAME FROM banji;";
+			statement = connection.prepareStatement(sql);
+			resultSet = statement.executeQuery();
+			while (resultSet.next()) {
+				int id = resultSet.getInt("id");
+				String name = resultSet.getString("name");
+				Banji banji = new Banji(id, name);
+				list.add(banji);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(connection, statement, resultSet);
+		}
+		
+		//放到request域对象中
+		req.setAttribute("list", list);
+		//转发到页面展示数据
+		req.getRequestDispatcher("/student_add.jsp").forward(req, resp);
+	}
+	
+	
 	
 	public void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("StudentServlet.add()");
