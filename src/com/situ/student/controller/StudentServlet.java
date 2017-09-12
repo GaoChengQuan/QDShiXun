@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.situ.student.pojo.Student;
 import com.situ.student.service.IStudentService;
-import com.situ.student.service.StudentServiceImpl;
+import com.situ.student.service.impl.StudentServiceImpl;
 
 public class StudentServlet extends HttpServlet{
 	

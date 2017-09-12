@@ -1,16 +1,10 @@
 package com.situ.student.util;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Properties;
-
-import javax.servlet.ServletContext;
 
 /**
  * 处理数据库工具类
@@ -22,7 +16,7 @@ public class JdbcUtil {
 	private final static String  userName = "root";
 	private final static String  password = "root";*/
 	
-	private static String driverClass;
+	private static String  driverClass;
 	private static String  url;
 	private static String  userName;
 	private static String  password;
