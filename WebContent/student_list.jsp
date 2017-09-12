@@ -55,7 +55,7 @@
 			<!--左边列表占12份中的2份-->
 			<div class="col-md-2">
 				<div class="list-group">
-				  <a href="#" class="list-group-item active">学生管理</a>
+				  <a href="/ShiXun09/student?method=findAll" class="list-group-item active">学生管理</a>
 				  <a href="student_search.jsp" class="list-group-item">学生搜索</a>
 				  <a href="/ShiXun09/student?method=getAddPage" class="list-group-item">添加学生</a>
 				</div>
@@ -63,9 +63,9 @@
 			<!--左边列表占12份中的10份-->
 			<div class="col-md-10">
 				<ul class="nav nav-tabs">
-				  <li role="presentation" class="active"><a href="#">学生管理</a></li>
-				  <li role="presentation"><a href="#">学生搜索</a></li>
-				  <li role="presentation"><a href="#">添加学生</a></li>
+				  <li role="presentation" class="active"><a href="/ShiXun09/student?method=findAll">学生管理</a></li>
+				  <li role="presentation"><a href="student_search.jsp">学生搜索</a></li>
+				  <li role="presentation"><a href="/ShiXun09/student?method=getAddPage">添加学生</a></li>
 				</ul>
 				
 				<table class="table  table-condensed table-hover">

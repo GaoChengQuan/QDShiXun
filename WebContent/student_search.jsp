@@ -47,9 +47,9 @@
 			<!--左边列表占12份中的2份-->
 			<div class="col-md-2">
 				<div class="list-group">
-				  <a href="#" class="list-group-item">学生管理</a>
-				  <a href="#" class="list-group-item  active">学生搜索</a>
-				  <a href="#" class="list-group-item">添加学生</a>
+				   <a href="/ShiXun09/student?method=findAll" class="list-group-item">学生管理</a>
+				  <a href="student_search.jsp" class="list-group-item  active">学生搜索</a>
+				  <a href="/ShiXun09/student?method=getAddPage" class="list-group-item">添加学生</a>
 				</div>
 			</div>
 			<!--左边列表占12份中的10份-->

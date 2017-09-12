@@ -23,7 +23,7 @@ public class StudentServlet extends BaseServlet{
 		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
-		List<Student> list = new ArrayList<>();
+		List<Student> list = new ArrayList<Student>();
 		try {
 			connection = JdbcUtil.getConnection();
 			String sql = "SELECT id,NAME,age,gender,address FROM student where name like ?;";
