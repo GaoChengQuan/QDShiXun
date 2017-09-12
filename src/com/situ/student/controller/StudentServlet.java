@@ -12,16 +12,22 @@ import com.situ.student.pojo.Student;
 import com.situ.student.service.IStudentService;
 import com.situ.student.service.impl.StudentServiceImpl;
 
-public class StudentServlet extends HttpServlet{
+public class StudentServlet extends BaseServlet{
 	
-	@Override
+	
+	
+	
+	
+	
+	/*@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		IStudentService studentService = new StudentServiceImpl();
 		List<Student> list = studentService.findAll();
 		for (Student student : list) {
 			System.out.println(student);
 		}
+		//放到request域对象中
 		req.setAttribute("list", list);
 		req.getRequestDispatcher("/student_list.jsp").forward(req, resp);
-	}
+	}*/
 }
