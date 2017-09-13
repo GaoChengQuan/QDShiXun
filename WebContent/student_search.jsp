@@ -33,8 +33,15 @@
 	        <li><a href="#"><span class="glyphicon glyphicon-tag"></span>&nbsp;&nbsp;教务管理</a></li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#">Admin</a></li>
-	        <li><a href="#"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a></li>
+	        <%
+	        	Admin admin = (Admin)session.getAttribute("admin");
+	       		if(admin != null) {
+	        %>
+	        	<li><a href="#"><%=admin.getName()%></a></li>
+	        <%
+	       		}
+	        %>
+	        <li><a href="/ShiXun09/login?method=logout"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a></li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
@@ -55,9 +62,9 @@
 			<!--左边列表占12份中的10份-->
 			<div class="col-md-10">
 				<ul class="nav nav-tabs">
-				  <li role="presentation"><a href="#">学生管理</a></li>
-				  <li role="presentation"  class="active"><a href="#">学生搜索</a></li>
-				  <li role="presentation"><a href="#">添加学生</a></li>
+				  <li role="presentation"><a href="/ShiXun09/student?method=findAll">学生管理</a></li>
+				  <li role="presentation"  class="active"><a href="student_search.jsp">学生搜索</a></li>
+				  <li role="presentation"><a href="/ShiXun09/student?method=getAddPage">添加学生</a></li>
 				</ul>
 				<!-- 搜索开始 -->
 				<form action="/ShiXun09/student?method=searchByName" method="post">

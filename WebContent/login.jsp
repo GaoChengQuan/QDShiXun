@@ -6,10 +6,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
 <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+	.form-signin {
+	    max-width: 330px;
+	    padding: 15px;
+	    margin: 0 auto;
+	}
+</style>
 </head>
 <body>
 	<div class="container">
-		<form action="/ShiXun09/admin?method=login" method="post">
+		<form class="form-signin" action="/ShiXun09/login?method=login" method="post">
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">用户名</label>
 			    <input name="name" class="form-control" id="exampleInputEmail1">
@@ -18,7 +25,7 @@
 			    <label for="exampleInputEmail1">密码</label>
 			    <input name="password" class="form-control" id="exampleInputEmail1">
 			  </div>
-			  <button type="submit" class="btn btn-default">登陆</button>
+			  <button type="submit" class="btn btn-lg btn-primary btn-block">登陆</button>
 		</form>
 	</div>
 </body>

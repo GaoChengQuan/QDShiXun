@@ -17,7 +17,16 @@ import com.situ.student.pojo.Admin;
 import com.situ.student.pojo.Student;
 import com.situ.student.util.JdbcUtil;
 
-public class AdminServlet extends BaseServlet{
+public class LoginServlet extends BaseServlet{
+	public void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//1.获取HttpSession
+		HttpSession session = req.getSession(false);
+		if (session != null) {
+			session.removeAttribute("admin");
+			//2.回到登陆界面
+			resp.sendRedirect(req.getContextPath() + "/login.jsp");
+		}
+	}
 
 	public void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//1.得到 name和password

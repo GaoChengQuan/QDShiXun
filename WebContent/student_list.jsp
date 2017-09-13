@@ -41,8 +41,15 @@
 	        <li><a href="#"><span class="glyphicon glyphicon-tag"></span>&nbsp;&nbsp;教务管理</a></li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#"></a></li>
-	        <li><a href="#"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a></li>
+	       <%
+	        	Admin admin = (Admin)session.getAttribute("admin");
+	       		if(admin != null) {
+	        %>
+	        	<li><a href="#"><%=admin.getName()%></a></li>
+	        <%
+	       		}
+	        %>
+	        <li><a href="/ShiXun09/login?method=logout"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a></li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
